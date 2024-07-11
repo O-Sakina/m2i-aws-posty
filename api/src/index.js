@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 // MySQL connection configuration
 const dbConfig = {
   host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
+  user: process.env.NODE_MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE,
 };
