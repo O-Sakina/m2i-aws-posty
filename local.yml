@@ -16,8 +16,6 @@ services:
       context: ./api
       dockerfile: ./docker/Dockerfile
     restart: always
-    depends_on:
-      - mysql
     env_file: ./environments/local.env
     ports:
       - 3003:3000
@@ -26,14 +24,14 @@ services:
       - /app/node_modules
     command: ["npm", "run", "devstart"]
   
-  mysql:
-    image: mysql:9
-    ports:
-      - 3306:3306
-    env_file: ./environments/local.env
-    volumes:
-      - ../import-data:/data
-      - ./mysql-data:/var/lib/mysql
-      - ./db_dump.sql:/docker-entrypoint-initdb.d/db_dump.sql
+  # mysql:
+  #   image: mysql:9
+  #   ports:
+  #     - 3306:3306
+  #   env_file: ./environments/local.env
+  #   volumes:
+  #     - ../import-data:/data
+  #     - ./mysql-data:/var/lib/mysql
+  #     - ./db_dump.sql:/docker-entrypoint-initdb.d/db_dump.sql
 
 
